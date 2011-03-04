@@ -4,12 +4,17 @@
 	<CheckBoxPreference
 		android:key="twitter_setting"
 		android:title="Twitter"
-		android:summary="Enable Twitter sharing features."
+		android:summary="Enable sharing with Twitter"
+		android:defaultValue="true" />
+	<CheckBoxPreference
+		android:key="facebook_setting"
+		android:title="Facebook"
+		android:summary="Enable sharing with Facebook"
 		android:defaultValue="true" />
     <ListPreference
     	android:key="textSizePref"
         android:title="Text Size"
-        android:summary="Change the size of the text."
+        android:summary="Change the size of the text"
         android:defaultValue="digiGreen"
         android:entries="@array/list_array"
         android:entryValues="@array/list_values" />

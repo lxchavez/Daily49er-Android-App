@@ -8,7 +8,6 @@ import android.os.Bundle;
  * This class creates a new thread for running the splash screen on the start
  * of the application.
  * @author Alex Chavez
- *
  */
 public class SplashScreen extends Activity
 {
@@ -26,7 +25,7 @@ public class SplashScreen extends Activity
              try 
              {
                 int waited = 0;
-                while (waited < 5000) 
+                while (waited < 3000) 
                 {
                    sleep(100);
                    waited += 100;
@@ -39,10 +38,6 @@ public class SplashScreen extends Activity
              finally 
              {
                 finish();
-                Intent splashIntent = new Intent();
-                splashIntent.setClassName("daily49er.android.app", 
-                		"daily49er.android.app.Daily49er");
-                startActivity(splashIntent);
              }
           }
        };
