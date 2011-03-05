@@ -1,7 +1,6 @@
 package daily49er.android.app;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 
 /**
@@ -19,7 +18,12 @@ public class SplashScreen extends Activity
       setContentView(R.layout.splash);
       Thread splashThread = new Thread() 
       {
-          @Override
+         
+          /**
+           * Run the splash screen for a total of 3 seconds. We should improve this
+           * to stay in the splash screen while loading/parsing the RSS feed.
+           */
+    	  @Override
           public void run() 
           {
              try 
@@ -33,7 +37,7 @@ public class SplashScreen extends Activity
              } 
              catch (InterruptedException e) 
              {
-                // do nothing
+                //Do nothing
              } 
              finally 
              {
@@ -42,5 +46,5 @@ public class SplashScreen extends Activity
           }
        };
        splashThread.start();
-   }
-}
+   } //end onCreate()
+} //end SplashScreen class

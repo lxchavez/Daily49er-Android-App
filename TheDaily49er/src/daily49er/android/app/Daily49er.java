@@ -33,8 +33,7 @@ public class Daily49er extends TabActivity
 
 	    // Initialize a TabSpec for each tab and add it to the TabHost
 	    spec = tabHost.newTabSpec("news").setIndicator("News",
-	                      res.getDrawable(R.drawable.icon))
-	                  .setContent(intent);
+	    		res.getDrawable(R.drawable.ic_tab_home)).setContent(intent);
 	    tabHost.addTab(spec);
 	        	    
 	    // Create an Intent to launch an Activity for the tab (to be reused)
@@ -42,8 +41,7 @@ public class Daily49er extends TabActivity
 	    
 	    // Initialize a TabSpec for each tab and add it to the TabHost
 	    spec = tabHost.newTabSpec("media").setIndicator("Media",
-	                      res.getDrawable(R.drawable.icon))
-	                  .setContent(intent);
+	    		res.getDrawable(R.drawable.ic_tab_media)).setContent(intent);
 	    tabHost.addTab(spec);
 	    
 	    
@@ -51,8 +49,8 @@ public class Daily49er extends TabActivity
 	    intent = new Intent().setClass(this, EventsTab.class);
 	    
 	    // Initialize a TabSpec for each tab and add it to the TabHost
-	    spec = tabHost.newTabSpec("events").setIndicator("Event",
-	                      res.getDrawable(R.drawable.icon))
+	    spec = tabHost.newTabSpec("events").setIndicator("Events",
+	                      res.getDrawable(R.drawable.ic_tab_events))
 	                  .setContent(intent);
 	    tabHost.addTab(spec);
 	    
@@ -62,7 +60,7 @@ public class Daily49er extends TabActivity
 	    
 	    // Initialize a TabSpec for each tab and add it to the TabHost
 	    spec = tabHost.newTabSpec("settings").setIndicator("Settings",
-	                      res.getDrawable(R.drawable.icon))
+	                      res.getDrawable(R.drawable.ic_tab_settings))
 	                  .setContent(intent);
 	    tabHost.addTab(spec);
 
