@@ -1,5 +1,6 @@
 package daily49er.android.app;
 import java.util.ArrayList;
+
 import java.util.List;
 
 import org.xml.sax.Attributes;
@@ -35,12 +36,12 @@ public class RssHandler extends DefaultHandler{
 				currentMessage.setDescription(builder.toString());
 			} else if (localName.equalsIgnoreCase(PUB_DATE)){
 				currentMessage.setDate(builder.toString());
+			} else if (localName.equalsIgnoreCase(AUTHOR)){
+				currentMessage.setAuthor(builder.toString());
+			}else if (localName.equalsIgnoreCase(P)){
+				currentMessage.setP(builder.toString());
 			} else if (localName.equalsIgnoreCase(ITEM)){
 				messages.add(currentMessage);
-			} else if (localName.equalsIgnoreCase(AUTHOR)){
-				currentMessage.setDate(builder.toString());
-			}else if (localName.equalsIgnoreCase(P)){
-				messages.add(currentMessage);	
 			}
 			builder.setLength(0);	
 		}
