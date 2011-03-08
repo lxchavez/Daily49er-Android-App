@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, Daily49er!</string>
+    <string name="app_name">The Daily 49er</string>
+    <color  name = "yellow">#ddddbb</color>
+</resources>
