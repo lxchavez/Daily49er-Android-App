@@ -26,25 +26,11 @@ public class NewsTab extends ListActivity
 	{
 		super.onCreate(savedInstanceState);
 
-		//this is what the layout of each item in the list will look like
-		//setListAdapter(new ArrayAdapter<String>(this,
-		//android.R.layout.simple_list_item_1, ARTICLES)); 
 		getListView().setTextFilterEnabled(true);
 		setContentView(R.layout.list);
 		loadFeed();
 	}
 
-	static final String[] ARTICLES = new String[]{
-		"Preview of Article 1", 
-		"Preview of Article 2", 
-		"Preview of Article 3",
-		"Preview of Article 4",
-		"Preview of Article 5",
-		"Preview of Article 6",
-		"Preview of Article 7",
-		"Preview of Article 8",
-		"Preview of Article 9",
-	"Preview of Article 10"};
 
 	public void loadFeed(){
 		try{
@@ -52,10 +38,15 @@ public class NewsTab extends ListActivity
 		message = parser.parse();
 		List<String> titles = new ArrayList<String>(message.size());
     	for (Message msg : message){
+    		//titles.add(msg.getDescription());
     		titles.add(msg.getTitle());
+    		//titles.add(msg.getDate());
+    		//titles.add(msg.getAuthor());
+    		//titles.add(msg.getP());
     	}
-    	String xml = writeXml();
-    	Log.i("AndroidNews", xml);
+   
+    	//String xml = writeXml();
+    	//Log.i("AndroidNews", xml);
     	ArrayAdapter<String> adapter = 
     		new ArrayAdapter<String>(this, R.layout.row,titles);
     	this.setListAdapter(adapter);
@@ -70,13 +61,14 @@ public class NewsTab extends ListActivity
 	protected void onListItemClick(ListView l, View v, int position, long id) 
 	{
 		super.onListItemClick(l, v, position, id);
-		Object o = this.getListAdapter().getItem(position);
-		String name = o.toString();
-		//Toast.makeText(this, "Beachin' Software " + " " + name, Toast.LENGTH_LONG).show();
-
-		Intent viewMessage = new Intent(Intent.ACTION_VIEW, 
-		Uri.parse(message.get(position).getLink().toExternalForm()));
+		
+		Intent viewMessage = new Intent(this,Article.class);
 		this.startActivity(viewMessage);
+
+		//Intent viewMessage = new Intent(Intent.ACTION_VIEW, 
+		//Uri.parse(message.get(position).getLink().toExternalForm()));
+		//this.startActivity(viewMessage);
+		
 	}
 	
 	private String writeXml(){

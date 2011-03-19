@@ -14,12 +14,12 @@ public class Daily49er extends TabActivity
     public void onCreate(Bundle savedInstanceState) 
     {
 		//Create a new intent to launch the splash screen
-		Intent splashIntent = new Intent();
+		/*Intent splashIntent = new Intent();
 		splashIntent.setClassName("daily49er.android.app",
                 "daily49er.android.app.SplashScreen");
-		startActivity(splashIntent);
+		startActivity(splashIntent);*/
 		
-		//Continue on to creat the main instance
+		//Continue on to create the main instance
 		super.onCreate(savedInstanceState);
 	    setContentView(R.layout.main);
 

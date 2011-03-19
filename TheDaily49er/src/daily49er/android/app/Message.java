@@ -58,7 +58,7 @@ public class Message implements Comparable<Message>{
 	}
 
 	public void setDescription(String description) {
-		this.description = description.trim();
+		this.description = description.trim().replaceAll("\\<.*?>", "");
 	}
 
 	public String getDate() {
@@ -91,10 +91,13 @@ public class Message implements Comparable<Message>{
 		sb.append('\n');
 		sb.append("Description: ");
 		sb.append(description);
+		sb.append('\n');
 		sb.append("Author :");
 		sb.append(author);
+		sb.append('\n');
 		sb.append("Paragraph: ");
 		sb.append(p);
+		sb.append('\n');
 		return sb.toString();
 	}
 	
@@ -104,6 +107,8 @@ public class Message implements Comparable<Message>{
 		copy.link = link;
 		copy.description = description;
 		copy.date = date;
+		copy.author = author;
+		copy.p = p;
 		return copy;
 	}
 
@@ -112,10 +117,11 @@ public class Message implements Comparable<Message>{
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((date == null) ? 0 : date.hashCode());
-		result = prime * result
-		+ ((description == null) ? 0 : description.hashCode());
+		result = prime * result + ((description == null) ? 0 : description.hashCode());
 		result = prime * result + ((link == null) ? 0 : link.hashCode());
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
+		result = prime * result + ((author == null) ? 0: author.hashCode());
+		result = prime * result + ((p == null) ? 0: p.hashCode());
 		return result;
 	}
 
