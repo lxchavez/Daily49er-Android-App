@@ -15,7 +15,7 @@
         </activity>
         
         <activity android:name=".Article"></activity>
-        
+        <activity android:name=".article"></activity>
         <activity android:name=".NewsTab"></activity>
         <activity android:name=".MediaTab"></activity>
         <activity android:name=".EventsTab"></activity>

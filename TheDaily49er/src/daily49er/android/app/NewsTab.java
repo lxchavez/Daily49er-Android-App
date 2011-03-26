@@ -19,34 +19,48 @@ import android.widget.Toast;
 
 public class NewsTab extends ListActivity 
 {
-	private List<Message> message;
+	private static List<Message> messageList;
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) 
 	{
 		super.onCreate(savedInstanceState);
-
+	
+		//setContentView(android.R.layout.simple_list_item_1);
+		//setListAdapter(new ArrayAdapter<String>(this,
+				//android.R.layout.simple_list_item_1, VIDEOS));
+		
 		getListView().setTextFilterEnabled(true);
-		setContentView(R.layout.list);
 		loadFeed();
 	}
-
+	
+	//leave it here for debugging purposes.
+	static final String[] VIDEOS = new String[]{
+    	"Preview of Video 1", 
+    	"Preview of Video 2", 
+    	"Preview of Video 3",
+    	"Preview of Video 4",
+    	"Preview of Video 5",
+    	"Preview of Video 6",
+    	"Preview of Video 7",
+    	"Preview of Video 8",
+    	"Preview of Video 9",
+    	"Preview of Video 10"};
 
 	public void loadFeed(){
 		try{
 		FeedParser parser = FeedParserFactory.getParser();
-		message = parser.parse();
-		List<String> titles = new ArrayList<String>(message.size());
-    	for (Message msg : message){
+		messageList = parser.parse();
+		List<String> titles = new ArrayList<String>(messageList.size());
+    	for (Message msg : messageList){
     		//titles.add(msg.getDescription());
-    		titles.add(msg.getTitle());
+    		 titles.add(msg.getTitle());
+    		 //titles.add(Integer.toString(msg.getOrder()));
     		//titles.add(msg.getDate());
     		//titles.add(msg.getAuthor());
     		//titles.add(msg.getP());
     	}
    
-    	//String xml = writeXml();
-    	//Log.i("AndroidNews", xml);
     	ArrayAdapter<String> adapter = 
     		new ArrayAdapter<String>(this, R.layout.row,titles);
     	this.setListAdapter(adapter);
@@ -61,44 +75,17 @@ public class NewsTab extends ListActivity
 	protected void onListItemClick(ListView l, View v, int position, long id) 
 	{
 		super.onListItemClick(l, v, position, id);
-		
 		Intent viewMessage = new Intent(this,Article.class);
+		viewMessage.putExtra("position", id);
 		this.startActivity(viewMessage);
 
 		//Intent viewMessage = new Intent(Intent.ACTION_VIEW, 
 		//Uri.parse(message.get(position).getLink().toExternalForm()));
 		//this.startActivity(viewMessage);
-		
+		//Object o = this.getListAdapter().getItem(position);
+		//String name = o.toString();
+		//Toast.makeText(this, "Beachin' Software " + " " + name, Toast.LENGTH_LONG).show();
 	}
 	
-	private String writeXml(){
-		XmlSerializer serializer = Xml.newSerializer();
-		StringWriter writer = new StringWriter();
-		try {
-			serializer.setOutput(writer);
-			serializer.startDocument("UTF-8", true);
-			serializer.startTag("", "messages");
-			serializer.attribute("", "number", String.valueOf(message.size()));
-			for (Message msg: message){
-				serializer.startTag("", "message");
-				serializer.attribute("", "date", msg.getDate());
-				serializer.startTag("", "title");
-				serializer.text(msg.getTitle());
-				serializer.endTag("", "title");
-				serializer.startTag("", "url");
-				serializer.text(msg.getLink().toExternalForm());
-				serializer.endTag("", "url");
-				serializer.startTag("", "body");
-				serializer.text(msg.getDescription());
-				serializer.endTag("", "body");
-				serializer.endTag("", "message");
-			}
-			serializer.endTag("", "messages");
-			serializer.endDocument();
-			return writer.toString();
-		} catch (Exception e) {
-			throw new RuntimeException(e);
-		} 
-	}
 
 }
