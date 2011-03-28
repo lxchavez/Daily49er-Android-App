@@ -22,13 +22,20 @@ public class Article extends ListActivity {
 	}
 	private void loadFeed(){
 		try{
+			String temp;
 			FeedParser parser = FeedParserFactory.getParser();
 			messageList = parser.parse();
 			List<String> titles = new ArrayList<String>(messageList.size());
 			//for (Message msg : message){
 			String castLong = Long.toString(num);
 			int index = Integer.parseInt(castLong);
-			titles.add(messageList.get(index).getDescription());
+			temp = messageList.get(index).getDescription();
+			int dot = temp.indexOf("...");
+			temp = temp.replaceAll("&nbsp;", "");
+			int disclaimer = temp.indexOf("Disclaimer:");
+			temp = temp.substring(dot+3, disclaimer).trim();
+			temp = "\t" + temp;
+			titles.add(temp);
 			//titles.add(n.messageList.get(n.messageList.).getDescription());
 			//titles.add(Integer.toString(n.messageList.get(0).getOrder() - n.messageList.size()));
 			//}

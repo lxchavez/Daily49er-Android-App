@@ -19,9 +19,7 @@
         <activity android:name=".NewsTab"></activity>
         <activity android:name=".MediaTab"></activity>
         <activity android:name=".EventsTab"></activity>
-        <activity android:name=".SettingsTab"
-        	android:label="Settings">
-        </activity>
+        <activity android:name=".SettingsTab" android:label="Settings"></activity>
         <activity android:launchMode="standard" android:name="SplashScreen"></activity>
 
     </application>

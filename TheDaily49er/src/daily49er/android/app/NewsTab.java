@@ -34,27 +34,17 @@ public class NewsTab extends ListActivity
 		loadFeed();
 	}
 	
-	//leave it here for debugging purposes.
-	static final String[] VIDEOS = new String[]{
-    	"Preview of Video 1", 
-    	"Preview of Video 2", 
-    	"Preview of Video 3",
-    	"Preview of Video 4",
-    	"Preview of Video 5",
-    	"Preview of Video 6",
-    	"Preview of Video 7",
-    	"Preview of Video 8",
-    	"Preview of Video 9",
-    	"Preview of Video 10"};
-
 	public void loadFeed(){
 		try{
+		String temp;
 		FeedParser parser = FeedParserFactory.getParser();
 		messageList = parser.parse();
 		List<String> titles = new ArrayList<String>(messageList.size());
     	for (Message msg : messageList){
     		//titles.add(msg.getDescription());
-    		 titles.add(msg.getTitle());
+    		temp = msg.getTitle();
+    		temp = temp + " \nby " + msg.getAuthor();  
+    		titles.add(temp);
     		 //titles.add(Integer.toString(msg.getOrder()));
     		//titles.add(msg.getDate());
     		//titles.add(msg.getAuthor());

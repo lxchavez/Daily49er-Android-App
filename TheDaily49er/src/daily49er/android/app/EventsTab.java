@@ -6,7 +6,8 @@ import android.view.KeyEvent;
 import android.webkit.WebView;
 
 /**
- * The Events Tab is composed of the Daily49er's "Diversions" calendar.
+ * The Events Tab is composed of the Daily49er's "Diversions" calendar which is
+ * implemented via an embedded WebView.
  * @author Alex Chavez
  */
 public class EventsTab extends Activity 
@@ -17,6 +18,7 @@ public class EventsTab extends Activity
 	/**
 	 * Creates a new instance of a WebView and opens the URL to the Daily49er's 
 	 * "Diversions" Google Calendar.
+	 * @param saveInstance - the saved instance of the application if it's been launched before
 	 */
 	@Override
     public void onCreate(Bundle savedInstanceState) 
@@ -38,7 +40,8 @@ public class EventsTab extends Activity
      * @param keyCode - the key code that is passed whenever any of the standard device buttons are 
      * pressed.
      * @param keyEvent - the event that is triggered by the button press.
-     * @return true 
+     * @return true - if the "back" button has been pressed; else return the event and keycode for
+     * the button that was pressed.
      */
      @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) 
