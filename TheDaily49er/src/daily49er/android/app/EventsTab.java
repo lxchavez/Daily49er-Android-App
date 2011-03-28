@@ -24,19 +24,23 @@ public class EventsTab extends Activity
         super.onCreate(savedInstanceState);
         calendarView = new WebView(this);
         calendarView.getSettings().setJavaScriptEnabled(true);
-        String url = "https://www.google.com/calendar/embed?src=alexchavez.net_3fv5fjm0lgiimhlfpook3uicao@group.calendar.google.com&showTitle=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&pvttk=ea92bc8b7d59b0c16c464239ea4325ce&gsessionid=OK";
-        calendarView.setWebViewClient(new RedirectHandling(calendarView, url));
+        String url = "https://www.google.com/calendar/embed?src=alexchavez.net_3fv5fjm0lgiim" + 
+        	"hlfpook3uicao@group.calendar.google.com&showTitle=0&showPrint=0&showTabs=0" + 
+        	"&showCalendars=0&showTz=0&mode=AGENDA&pvttk=ea92bc8b7d59b0c16c464239ea4325ce" + 
+        	"&gsessionid=OK";
+        calendarView.setWebViewClient(new LoadPage(calendarView, url));
         setContentView(calendarView);
     }
     
-    @Override
     /**
-     * This callback method will be called anytime a button is pressed while in the Events tab WebView; it will
-     * go back to a previous page in the webview.
-     * @param keyCode - the key code that is passed whenever any of the standard device buttons are pressed.
-     * @param keyEvent - the event that is triggered by the button press.\
+     * This callback method will be called anytime a button is pressed while in the Events tab 
+     * WebView; it will go back to a previous page in the webview.
+     * @param keyCode - the key code that is passed whenever any of the standard device buttons are 
+     * pressed.
+     * @param keyEvent - the event that is triggered by the button press.
      * @return true 
      */
+     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) 
     {
         if ((keyCode == KeyEvent.KEYCODE_BACK) && calendarView.canGoBack()) 
