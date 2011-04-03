@@ -3,4 +3,18 @@
     <string name="hello">Hello World, Daily49er!</string>
     <string name="app_name">The Daily 49er</string>
     <color  name = "yellow">#ddddbb</color>
+    
+    <!--BEGIN MENU BUTTON STRINGS -->
+    <string name="facebook_label">Facebook</string>
+    <string name="facebook_title">Facebook sharing</string>
+    <string name="facebook_shortcut">fb</string>
+    
+   	<string name="twitter_label">Twitter</string>
+    <string name="twitter_title">Twitter sharing</string>
+    <string name="twitter_shortcut">twt</string>
+    
+    <string name="email_label">E-mail</string>
+    <string name="email_title">Email sharing</string>
+    <string name="email_shortcut">em</string>
+    <!--END MENU BUTTON STRINGS -->
 </resources>

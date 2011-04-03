@@ -10,9 +10,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Xml;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -26,9 +25,7 @@ public class NewsTab extends ListActivity
 	{
 		super.onCreate(savedInstanceState);
 	
-		//setContentView(android.R.layout.simple_list_item_1);
-		//setListAdapter(new ArrayAdapter<String>(this,
-				//android.R.layout.simple_list_item_1, VIDEOS));
+		setContentView(R.layout.list);
 		
 		getListView().setTextFilterEnabled(true);
 		loadFeed();
@@ -41,14 +38,11 @@ public class NewsTab extends ListActivity
 		messageList = parser.parse();
 		List<String> titles = new ArrayList<String>(messageList.size());
     	for (Message msg : messageList){
-    		//titles.add(msg.getDescription());
-    		temp = msg.getTitle();
+    		//temp = msg.getTitle();
+    		temp = msg.getLink().toString();
     		temp = temp + " \nby " + msg.getAuthor();  
     		titles.add(temp);
-    		 //titles.add(Integer.toString(msg.getOrder()));
-    		//titles.add(msg.getDate());
-    		//titles.add(msg.getAuthor());
-    		//titles.add(msg.getP());
+    	
     	}
    
     	ArrayAdapter<String> adapter = 
@@ -56,7 +50,7 @@ public class NewsTab extends ListActivity
     	this.setListAdapter(adapter);
 		}
 		catch (Throwable t){
-    		Log.e("AndroidNews",t.getMessage(),t);
+    		Log.e("Daily49er",t.getMessage(),t);
     	}
 
 	}

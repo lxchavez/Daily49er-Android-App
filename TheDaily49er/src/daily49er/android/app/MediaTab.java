@@ -1,45 +1,51 @@
 package daily49er.android.app;
 
-	import android.app.ListActivity;
-	import android.os.Bundle;
-	import android.view.View;
-	import android.widget.ArrayAdapter;
-	import android.widget.ListView;
-	import android.widget.Toast;
+import java.io.IOException;
+import android.app.Activity;
+import android.app.ListActivity;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.webkit.WebView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.Toast;
 
-	public class MediaTab extends ListActivity 
-	{
-	    /** Called when the activity is first created. */
-	    @Override
-	    public void onCreate(Bundle savedInstanceState) 
-	    {
-	        super.onCreate(savedInstanceState);
-	        
-	        //this is what the layout of each item in the list will look like
-	        setListAdapter(new ArrayAdapter<String>(this,
-	                android.R.layout.simple_list_item_1, VIDEOS)); 
-	        getListView().setTextFilterEnabled(true);
-	    }
-	    
-	    static final String[] VIDEOS = new String[]{
-	    	"Preview of Video 1", 
-	    	"Preview of Video 2", 
-	    	"Preview of Video 3",
-	    	"Preview of Video 4",
-	    	"Preview of Video 5",
-	    	"Preview of Video 6",
-	    	"Preview of Video 7",
-	    	"Preview of Video 8",
-	    	"Preview of Video 9",
-	    	"Preview of Video 10"};
-	    
-	    //This is what to do when an item from the list is clicked
-	    protected void onListItemClick(ListView l, View v, int position, long id) 
-	    {
-	    	super.onListItemClick(l, v, position, id);
-	    	Object o = this.getListAdapter().getItem(position);
-	    	String name = o.toString();
-	    	Toast.makeText(this, "Beachin' Software " + " " + name, Toast.LENGTH_LONG).show();
-	    }
+/**
+ * The media tab contains two buttons selection, "Video" and "Podcast".
+ * When a button is clicked, it redirects the user to the phone's default media viewer application
+ * for the user to view the respective content.
+ */
+public class MediaTab extends Activity implements OnClickListener
+{
+
+	//almost done, just have to change UI to make it more interesting.
+    @Override
+    public void onCreate(Bundle savedInstanceState) 
+    {
+        super.onCreate(savedInstanceState);
+        this.setContentView(R.layout.media);
+        
+        //set up click listeners for all the buttons
+        View videoButton = findViewById(R.id.videoButton);
+        videoButton.setOnClickListener(this);
+        View podcastButton = findViewById(R.id.podcastButton);
+        podcastButton.setOnClickListener(this);
+                
+    }
+    
+    public void onClick(View view){
+    	if(view.getId() == R.id.videoButton){
+    	       startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.youtube.com/user/videod49er")));
+    	}
+    	else{
+ 	       startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.youtube.com/user/audiod49er")));
+
+    	}
+    }
+    
 	    
 }

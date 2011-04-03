@@ -40,13 +40,13 @@ public class EventsTab extends Activity
      * @param keyCode - the key code that is passed whenever any of the standard device buttons are 
      * pressed.
      * @param keyEvent - the event that is triggered by the button press.
-     * @return true - if the "back" button has been pressed; else return the event and keycode for
+     * @return true - if the "back" button has been pressed; then return the event and keycode for
      * the button that was pressed.
      */
      @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) 
     {
-        if ((keyCode == KeyEvent.KEYCODE_BACK) && calendarView.canGoBack()) 
+        if((keyCode == KeyEvent.KEYCODE_BACK) && calendarView.canGoBack()) 
         {
             calendarView.goBack();
             return true;

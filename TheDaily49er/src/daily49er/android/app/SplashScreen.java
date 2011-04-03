@@ -34,7 +34,7 @@ public class SplashScreen extends Activity
                    sleep(100);
                    waited += 100;
                 }
-             }
+             } 
              catch (InterruptedException e) 
              {
                 //Do nothing
