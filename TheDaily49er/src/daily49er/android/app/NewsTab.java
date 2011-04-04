@@ -24,35 +24,35 @@ public class NewsTab extends ListActivity
 	public void onCreate(Bundle savedInstanceState) 
 	{
 		super.onCreate(savedInstanceState);
-	
 		setContentView(R.layout.list);
-		
 		getListView().setTextFilterEnabled(true);
 		loadFeed();
 	}
 	
-	public void loadFeed(){
-		try{
-		String temp;
-		FeedParser parser = FeedParserFactory.getParser();
-		messageList = parser.parse();
-		List<String> titles = new ArrayList<String>(messageList.size());
-    	for (Message msg : messageList){
-    		//temp = msg.getTitle();
-    		temp = msg.getLink().toString();
-    		temp = temp + " \nby " + msg.getAuthor();  
-    		titles.add(temp);
-    	
-    	}
-   
-    	ArrayAdapter<String> adapter = 
-    		new ArrayAdapter<String>(this, R.layout.row,titles);
-    	this.setListAdapter(adapter);
+	public void loadFeed()
+	{
+		try
+		{
+			String title;
+			FeedParser parser = FeedParserFactory.getParser();
+			messageList = parser.parse();
+			List<String> titles = new ArrayList<String>(messageList.size());
+	    	for(Message msg : messageList)
+	    	{
+	    		title = msg.getTitle();
+	    		title = title + " \nby " + msg.getAuthor();  
+	    		titles.add(title);
+	    	
+	    	}
+	   
+	    	ArrayAdapter<String> adapter = 
+	    		new ArrayAdapter<String>(this, R.layout.row,titles);
+	    	this.setListAdapter(adapter);
 		}
-		catch (Throwable t){
+		catch (Throwable t)
+		{
     		Log.e("Daily49er",t.getMessage(),t);
     	}
-
 	}
 
 	//This is what to do when an item from the list is clicked
