@@ -31,8 +31,8 @@ public class Article extends ListActivity {
 	/**
 	 * Creates a context menu from /res/layout/menu_button.xml; the
 	 * context menu will present the user options to share an article
-	 * that is being currently viewed via Facebook, Twitter and E-mail
-	 * sharing options. 
+	 * that is being currently viewed through Facebook, Twitter 
+	 * and e-mail. 
 	 * @param menu - the menu that will be created through the
 	 * menu inflater.
 	 * @return true - if menu has been inflated and shown.
@@ -51,6 +51,13 @@ public class Article extends ListActivity {
 		return true;
 	}
 	
+
+	/**
+	 * Perform the respective sharing actions for each type of service
+	 * selected from the sharing context menu. 
+	 * @param item - the button selected from the menu button.
+	 * @return true - once the case's action has been completed (if applicable).
+	 */
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) 
 	{
@@ -65,13 +72,12 @@ public class Article extends ListActivity {
 				//startActivity(new Intent(this, Twitter.class));
 				return true;
 			case R.id.email_share:
-				//Implementation:
-				//startActivity(new Intent(this, EmailArticle.class));
 				Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND); 
 				emailIntent.setType("plain/text");
 				emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "The Daily 49er: " + articleTitle);
 				emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, "\"" + articleTitle + "\"" + 
-						" by " + articleAuthor + ": " + articleUrl); 
+						" by " + articleAuthor + ": " + articleUrl);
+				//Create a launcher to select which e-mail app to use in the case that there is more than one installed
 				startActivity(Intent.createChooser(emailIntent, "Share your article through:"));
 				return true;
 		}
