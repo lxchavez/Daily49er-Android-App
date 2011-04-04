@@ -59,10 +59,9 @@ public class NewsTab extends ListActivity
 	protected void onListItemClick(ListView l, View v, int position, long id) 
 	{
 		super.onListItemClick(l, v, position, id);
-		Intent viewMessage = new Intent(this,Article.class);
+		Intent viewMessage = new Intent(this, Article.class);
 		viewMessage.putExtra("position", id);
 		this.startActivity(viewMessage);
-
 		//Intent viewMessage = new Intent(Intent.ACTION_VIEW, 
 		//Uri.parse(message.get(position).getLink().toExternalForm()));
 		//this.startActivity(viewMessage);
