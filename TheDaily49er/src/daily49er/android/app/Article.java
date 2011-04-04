@@ -16,6 +16,9 @@ public class Article extends ListActivity {
 	//private List<Message> message;
 	private List<Message> messageList;
 	private Long num;
+	String articleTitle = "";
+	String articleUrl = "";
+	String articleAuthor = "";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
@@ -63,11 +66,12 @@ public class Article extends ListActivity {
 				return true;
 			case R.id.email_share:
 				//Implementation:
-				//startActivity(new Intent(this, Email.class));
+				//startActivity(new Intent(this, EmailArticle.class));
 				Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND); 
-				emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Test subject");
 				emailIntent.setType("plain/text");
-				emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, "The message body."); 
+				emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "The Daily 49er: " + articleTitle);
+				emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, "\"" + articleTitle + "\"" + 
+						" by " + articleAuthor + ": " + articleUrl); 
 				startActivity(Intent.createChooser(emailIntent, "Share your article through:"));
 				return true;
 		}
@@ -84,6 +88,9 @@ public class Article extends ListActivity {
 			String castLong = Long.toString(num);
 			int index = Integer.parseInt(castLong);
 			temp = messageList.get(index).getDescription();
+			articleTitle = messageList.get(index).getTitle();
+			articleUrl = messageList.get(index).getLink().toString();
+			articleAuthor = messageList.get(index).getAuthor();
 			int dot = temp.indexOf("...");
 			temp = temp.replaceAll("&nbsp;", "");
 			int disclaimer = temp.indexOf("Disclaimer:");
