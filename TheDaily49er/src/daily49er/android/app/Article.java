@@ -3,6 +3,7 @@ package daily49er.android.app;
 import java.util.ArrayList;
 import java.util.List;
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -50,7 +51,7 @@ public class Article extends ListActivity {
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) 
 	{
-		switch (item.getItemId()) 
+		switch(item.getItemId()) 
 		{ 
 			case R.id.facebook_share:
 				//Implementation:
@@ -63,6 +64,11 @@ public class Article extends ListActivity {
 			case R.id.email_share:
 				//Implementation:
 				//startActivity(new Intent(this, Email.class));
+				Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND); 
+				emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Test subject");
+				emailIntent.setType("plain/text");
+				emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, "The message body."); 
+				startActivity(Intent.createChooser(emailIntent, "Share your article through:"));
 				return true;
 		}
 		return false;
