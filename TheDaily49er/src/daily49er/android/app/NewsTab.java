@@ -18,7 +18,7 @@ import android.widget.Toast;
 
 public class NewsTab extends ListActivity 
 {
-	private static List<Message> messageList;
+	public static List<Message> messageList;
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) 
@@ -42,7 +42,6 @@ public class NewsTab extends ListActivity
 	    		title = msg.getTitle();
 	    		title = title + " \nby " + msg.getAuthor();  
 	    		titles.add(title);
-	    	
 	    	}
 	   
 	    	ArrayAdapter<String> adapter = 
@@ -69,6 +68,4 @@ public class NewsTab extends ListActivity
 		//String name = o.toString();
 		//Toast.makeText(this, "Beachin' Software " + " " + name, Toast.LENGTH_LONG).show();
 	}
-	
-
 }
