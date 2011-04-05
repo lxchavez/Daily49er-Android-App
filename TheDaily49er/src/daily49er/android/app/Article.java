@@ -2,6 +2,11 @@ package daily49er.android.app;
 
 import java.util.ArrayList;
 import java.util.List;
+
+/*import com.facebook.android.*;
+import com.facebook.android.Facebook.*;*/
+
+import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,11 +19,12 @@ import daily49er.android.app.NewsTab;
 
 public class Article extends ListActivity {
 	//private List<Message> message;
-	private List<Message> messageList;
+//	private List<Message> messageList;
+	NewsTab newsTab = new NewsTab();
 	private Long num;
-	String articleTitle = "";
-	String articleUrl = "";
-	String articleAuthor = "";
+	String articleTitle;
+	String articleUrl;
+	String articleAuthor;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState){
@@ -65,7 +71,7 @@ public class Article extends ListActivity {
 		{ 
 			case R.id.facebook_share:
 				//Implementation:
-				//startActivity(new Intent(this, Facebook.class));
+				//
 				return true;
 			case R.id.twitter_share:
 				//Implementation:
@@ -87,20 +93,20 @@ public class Article extends ListActivity {
 	private void loadFeed(){
 		try{
 			String temp;
-			FeedParser parser = FeedParserFactory.getParser();
-			messageList = parser.parse();
-			List<String> titles = new ArrayList<String>(messageList.size());
+			//FeedParser parser = FeedParserFactory.getParser();
+			//messageList = parser.parse();
+			List<String> titles = new ArrayList<String>(newsTab.messageList.size());
 			//for (Message msg : message){
 			String castLong = Long.toString(num);
 			int index = Integer.parseInt(castLong);
-			temp = messageList.get(index).getDescription();
-			articleTitle = messageList.get(index).getTitle();
-			articleUrl = messageList.get(index).getLink().toString();
-			articleAuthor = messageList.get(index).getAuthor();
-			int dot = temp.indexOf("...");
+			temp = newsTab.messageList.get(index).getDescription();
+			articleTitle = newsTab.messageList.get(index).getTitle();
+			articleUrl = newsTab.messageList.get(index).getLink().toString();
+			articleAuthor = newsTab.messageList.get(index).getAuthor();
+			int dotDotDot = temp.indexOf("...");
 			temp = temp.replaceAll("&nbsp;", "");
 			int disclaimer = temp.indexOf("Disclaimer:");
-			temp = temp.substring(dot+3, disclaimer).trim();
+			temp = temp.substring(dotDotDot +3, disclaimer).trim();
 			temp = "\t" + temp;
 			titles.add(temp);
 			//titles.add(n.messageList.get(n.messageList.).getDescription());
@@ -114,5 +120,4 @@ public class Article extends ListActivity {
 			Log.e("AndroidNews",t.getMessage(),t);
 		}
 	}
-
 }
