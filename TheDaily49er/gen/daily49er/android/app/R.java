@@ -32,7 +32,6 @@ public final class R {
     public static final class id {
         public static final int ImageView01=0x7f080006;
         public static final int TextView01=0x7f080005;
-        public static final int android_video=0x7f080007;
         public static final int email_share=0x7f080004;
         public static final int facebook_share=0x7f080002;
         public static final int podcastButton=0x7f080001;
@@ -46,7 +45,6 @@ public final class R {
         public static final int menu_button=0x7f030003;
         public static final int row=0x7f030004;
         public static final int splash=0x7f030005;
-        public static final int video=0x7f030006;
     }
     public static final class string {
         public static final int app_name=0x7f060001;

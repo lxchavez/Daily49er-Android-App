@@ -85,7 +85,7 @@ public class Article extends ListActivity
 				emailIntent.setType("plain/text");
 				emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "The Daily 49er: " + articleTitle);
 				emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, "\"" + articleTitle + "\"" + 
-						"By " + articleAuthor + ": " + articleUrl);
+						" by " + articleAuthor + ": " + articleUrl);
 				//Create a launcher to select which e-mail app to use in the case that there is more than one installed
 				startActivity(Intent.createChooser(emailIntent, "Share your article through:"));
 				return true;
@@ -111,7 +111,7 @@ public class Article extends ListActivity
 			int dotDotDot = articleBody.indexOf("...");
 			articleBody = articleBody.replaceAll("&nbsp;", "");
 			int disclaimer = articleBody.indexOf("Disclaimer:");
-			articleBody = articleBody.substring(dotDotDot +3, disclaimer).trim();
+			articleBody = articleBody.substring(dotDotDot + 3, disclaimer).trim();
 			articleBody = "\n" + articleTitle + " (" + articleCategory + ") " + "\n\n"
 				+ "By " + articleAuthor + "\n" + articleDate + "\n" + "\n\n\t" + articleBody;
 			titles.add(articleBody);

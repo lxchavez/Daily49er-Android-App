@@ -11,6 +11,4 @@
 		android:layout_height="wrap_content" android:text="Podcast"
 		android:layout_x="95px" android:layout_y="187px">
 	</Button>  
-
-
 </AbsoluteLayout>

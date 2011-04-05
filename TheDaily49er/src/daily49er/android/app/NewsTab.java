@@ -34,18 +34,18 @@ public class NewsTab extends ListActivity
 	{
 		try
 		{
-			String title;
+			String articleTitle;
 			FeedParser parser = FeedParserFactory.getParser();
 			messageList = parser.parse();
 			List<String> titles = new ArrayList<String>(messageList.size());
-	    	for(Message msg : messageList)
+	    	for(Message article : messageList)
 	    	{
-	    		title = msg.getTitle() + " \nby " + msg.getAuthor() + "\n" + msg.getCategory(); 
-	    		titles.add(title);
+	    		articleTitle = article.getTitle() + " \nby " + article.getAuthor() + "\n" + article.getCategory(); 
+	    		titles.add(articleTitle);
 	    	}
 	   
 	    	ArrayAdapter<String> adapter = 
-	    		new ArrayAdapter<String>(this, R.layout.row,titles);
+	    		new ArrayAdapter<String>(this, R.layout.row, titles);
 	    		
 	    	this.setListAdapter(adapter);
 		}
