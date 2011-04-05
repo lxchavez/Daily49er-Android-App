@@ -38,8 +38,8 @@ public class RssHandler extends DefaultHandler{
 				currentMessage.setDate(builder.toString());
 			} else if (localName.equalsIgnoreCase(AUTHOR)){
 				currentMessage.setAuthor(builder.toString());
-			}else if (localName.equalsIgnoreCase(P)){
-				currentMessage.setP(builder.toString());
+			}else if (localName.equalsIgnoreCase(CATEGORY)){
+				currentMessage.setCategory(builder.toString());
 			} else if (localName.equalsIgnoreCase(ITEM)){
 				messages.add(currentMessage);
 			}

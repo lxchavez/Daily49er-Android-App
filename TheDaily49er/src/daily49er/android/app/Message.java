@@ -14,7 +14,7 @@ public class Message implements Comparable<Message>{
 	private URL link;
 	private String description;
 	private String author;
-	private String p;
+	private String category;
 	private Date date;
 	
 	public String getAuthor(){
@@ -25,12 +25,12 @@ public class Message implements Comparable<Message>{
 		this.author = author.trim();
 	}
 	
-	public String getP(){
-		return p;
+	public String getCategory(){
+		return category;
 	}
 	
-	public void setP(String p){
-		this.p = p.trim();
+	public void setCategory(String category){
+		this.category = category.trim();
 	}
 
 	public String getTitle() {
@@ -97,7 +97,7 @@ public class Message implements Comparable<Message>{
 		sb.append(author);
 		sb.append('\n');
 		sb.append("Paragraph: ");
-		sb.append(p);
+		sb.append("Category: ");
 		sb.append('\n');
 		return sb.toString();
 	}
@@ -109,7 +109,7 @@ public class Message implements Comparable<Message>{
 		copy.description = description;
 		copy.date = date;
 		copy.author = author;
-		copy.p = p;
+		copy.category = category;
 		return copy;
 	}
 
@@ -122,7 +122,7 @@ public class Message implements Comparable<Message>{
 		result = prime * result + ((link == null) ? 0 : link.hashCode());
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
 		result = prime * result + ((author == null) ? 0: author.hashCode());
-		result = prime * result + ((p == null) ? 0: p.hashCode());
+		result = prime * result + ((category == null) ? 0: category.hashCode());
 		return result;
 	}
 
@@ -160,10 +160,10 @@ public class Message implements Comparable<Message>{
 				return false;
 		}else if(!author.equals(other.author))
 			return false;
-		if(p == null){
-			if(other.p != null)
+		if(category == null){
+			if(other.category != null)
 				return false;
-		}else if(!p.equals(other.p))
+		}else if(!category.equals(other.category))
 			return false;
 		return true;
 	}

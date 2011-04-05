@@ -51,9 +51,9 @@ public class AndroidSaxFeedParser extends BaseFeedParser {
 				currentMessage.setAuthor(body);
 			}
 		});
-		item.getChild(P).setEndTextElementListener(new EndTextElementListener(){
+		item.getChild(CATEGORY).setEndTextElementListener(new EndTextElementListener(){
 			public void end(String body){
-				currentMessage.setP(body);
+				currentMessage.setCategory(body);
 			}
 		});
 		try {

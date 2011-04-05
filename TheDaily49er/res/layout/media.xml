@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent">
+
+
+	<Button android:id="@+id/videoButton" android:layout_width="144px"
+		android:layout_height="wrap_content" android:text="Video"
+		android:layout_x="94px" android:layout_y="81px">
+	</Button>
+	<Button android:id="@+id/podcastButton" android:layout_width="144px"
+		android:layout_height="wrap_content" android:text="Podcast"
+		android:layout_x="95px" android:layout_y="187px">
+	</Button>  
+
+
+</AbsoluteLayout>

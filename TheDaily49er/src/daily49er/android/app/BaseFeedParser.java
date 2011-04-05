@@ -14,7 +14,7 @@ public abstract class BaseFeedParser implements FeedParser {
 	static final String TITLE = "title";
 	static final String ITEM = "item";
 	static final String AUTHOR = "author";
-	static final String P = "p";
+	static final String CATEGORY = "category";
 	
 	private final URL feedUrl;
 	

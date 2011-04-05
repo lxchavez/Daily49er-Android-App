@@ -14,6 +14,7 @@ import android.view.View;
 import android.webkit.WebView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class NewsTab extends ListActivity 
@@ -39,13 +40,13 @@ public class NewsTab extends ListActivity
 			List<String> titles = new ArrayList<String>(messageList.size());
 	    	for(Message msg : messageList)
 	    	{
-	    		title = msg.getTitle();
-	    		title = title + " \nby " + msg.getAuthor();  
+	    		title = msg.getTitle() + " \nby " + msg.getAuthor() + "\n" + msg.getCategory(); 
 	    		titles.add(title);
 	    	}
 	   
 	    	ArrayAdapter<String> adapter = 
 	    		new ArrayAdapter<String>(this, R.layout.row,titles);
+	    		
 	    	this.setListAdapter(adapter);
 		}
 		catch (Throwable t)

@@ -17,22 +17,25 @@ import android.util.Log;
 import android.widget.ArrayAdapter;
 import daily49er.android.app.NewsTab;
 
-public class Article extends ListActivity {
-	//private List<Message> message;
-//	private List<Message> messageList;
+public class Article extends ListActivity 
+{
 	NewsTab newsTab = new NewsTab();
-	private Long num;
+	private Long articlePosition;
+	String articleBody;
 	String articleTitle;
 	String articleUrl;
 	String articleAuthor;
+	String articleDate;
+	String articleCategory;
 	
 	@Override
-	protected void onCreate(Bundle savedInstanceState){
+	protected void onCreate(Bundle savedInstanceState)
+	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.list);
-		num = this.getIntent().getExtras().getLong("position");
+		articlePosition = this.getIntent().getExtras().getLong("position");
 		loadFeed();
-	}
+	} //end onCreate()
 	
 	/**
 	 * Creates a context menu from /res/layout/menu_button.xml; the
@@ -55,7 +58,7 @@ public class Article extends ListActivity {
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.layout.menu_button, menu);
 		return true;
-	}
+	} //end onCreateOptionsMenu()
 	
 
 	/**
@@ -82,42 +85,44 @@ public class Article extends ListActivity {
 				emailIntent.setType("plain/text");
 				emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "The Daily 49er: " + articleTitle);
 				emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, "\"" + articleTitle + "\"" + 
-						" by " + articleAuthor + ": " + articleUrl);
+						"By " + articleAuthor + ": " + articleUrl);
 				//Create a launcher to select which e-mail app to use in the case that there is more than one installed
 				startActivity(Intent.createChooser(emailIntent, "Share your article through:"));
 				return true;
 		}
 		return false;
-	}
+	} //end onOptionsSelected()
 	
-	private void loadFeed(){
-		try{
-			String temp;
-			//FeedParser parser = FeedParserFactory.getParser();
-			//messageList = parser.parse();
+	private void loadFeed()
+	{
+		try
+		{
 			List<String> titles = new ArrayList<String>(newsTab.messageList.size());
-			//for (Message msg : message){
-			String castLong = Long.toString(num);
+			String castLong = Long.toString(articlePosition);
 			int index = Integer.parseInt(castLong);
-			temp = newsTab.messageList.get(index).getDescription();
+			
+			articleBody = newsTab.messageList.get(index).getDescription();
 			articleTitle = newsTab.messageList.get(index).getTitle();
 			articleUrl = newsTab.messageList.get(index).getLink().toString();
 			articleAuthor = newsTab.messageList.get(index).getAuthor();
-			int dotDotDot = temp.indexOf("...");
-			temp = temp.replaceAll("&nbsp;", "");
-			int disclaimer = temp.indexOf("Disclaimer:");
-			temp = temp.substring(dotDotDot +3, disclaimer).trim();
-			temp = "\t" + temp;
-			titles.add(temp);
-			//titles.add(n.messageList.get(n.messageList.).getDescription());
-			//titles.add(Integer.toString(n.messageList.get(0).getOrder() - n.messageList.size()));
-			//}
+			articleDate = newsTab.messageList.get(index).getDate();
+			articleCategory = newsTab.messageList.get(index).getCategory();
+			
+			int dotDotDot = articleBody.indexOf("...");
+			articleBody = articleBody.replaceAll("&nbsp;", "");
+			int disclaimer = articleBody.indexOf("Disclaimer:");
+			articleBody = articleBody.substring(dotDotDot +3, disclaimer).trim();
+			articleBody = "\n" + articleTitle + " (" + articleCategory + ") " + "\n\n"
+				+ "By " + articleAuthor + "\n" + articleDate + "\n" + "\n\n\t" + articleBody;
+			titles.add(articleBody);
+
 			ArrayAdapter<String> adapter = 
 				new ArrayAdapter<String>(this, R.layout.row,titles);
 			this.setListAdapter(adapter);
 
-		}catch(Throwable t){
+		}catch(Throwable t)
+		{
 			Log.e("AndroidNews",t.getMessage(),t);
-		}
-	}
-}
+		} //end try-catch
+	} //end loadFeed()
+} //end Article
