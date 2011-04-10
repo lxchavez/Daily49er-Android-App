@@ -1,12 +1,5 @@
 package daily49er.android.app;
 
-import java.util.ArrayList;
-import java.util.List;
-
-/*import com.facebook.android.*;
-import com.facebook.android.Facebook.*;*/
-
-import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,8 +9,10 @@ import android.view.MenuItem;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import daily49er.android.app.NewsTab;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Article extends ListActivity 
+public class Article extends ListActivity
 {
 	NewsTab newsTab = new NewsTab();
 	private Long articlePosition;
@@ -73,8 +68,8 @@ public class Article extends ListActivity
 		switch(item.getItemId()) 
 		{ 
 			case R.id.facebook_share:
-				//Implementation:
-				//
+				FacebookShare.setUrl(articleUrl);
+				startActivity(new Intent(this, FacebookShare.class));
 				return true;
 			case R.id.twitter_share:
 				//Implementation:
