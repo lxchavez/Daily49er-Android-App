@@ -42,7 +42,7 @@ public class FacebookShare extends Activity
     public void onCreate(Bundle savedInstanceState) 
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        //setContentView(R.layout.main);
         facebook = new Facebook(APP_ID);
         //Restore the previously stored credentials, if any, from the SharedPreferences of the app
         restoreCredentials(facebook);
