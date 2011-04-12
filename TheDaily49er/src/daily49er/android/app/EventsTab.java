@@ -15,11 +15,7 @@ public class EventsTab extends Activity
 	//Create a new WebView object
 	WebView calendarView;
 	
-	/**
-	 * Creates a new instance of a WebView and opens the URL to the Daily49er's 
-	 * "Diversions" Google Calendar.
-	 * @param saveInstance - the saved instance of the application if it's been launched before
-	 */
+	/** Called when the activity is first created. */
 	@Override
     public void onCreate(Bundle savedInstanceState) 
     {
