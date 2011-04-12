@@ -11,11 +11,6 @@ import android.preference.PreferenceManager;
  */
 public class SettingsTab extends PreferenceActivity 
 {
-	//Option names and default values
-	private static final String TWITTER_SHARE_DEF = "enableTwitter";
-	private static final boolean TWITTER_SHARE_ENABLE = true;
-	private static final String FACEBOOK_SHARE_DEF = "enableFacebook";
-	private static final boolean FACEBOOK_SHARE_ENABLE = true;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -26,20 +21,4 @@ public class SettingsTab extends PreferenceActivity
         //into views in the current activity.
         addPreferencesFromResource(R.xml.preferences);
     } //end onCreate()
-	
-	//Get the current Twitter sharing preference
-	public static boolean getTwitterOption(Context context)
-	{
-		return PreferenceManager.getDefaultSharedPreferences(context)
-			.getBoolean(TWITTER_SHARE_DEF, TWITTER_SHARE_ENABLE);
-	}
-	
-	//Get the current Facebook sharing preference
-	public static boolean getFacebookOption(Context context)
-	{
-		return PreferenceManager.getDefaultSharedPreferences(context)
-			.getBoolean(FACEBOOK_SHARE_DEF, FACEBOOK_SHARE_ENABLE);
-	}
-	
-	
 } //end SettingsTab class
