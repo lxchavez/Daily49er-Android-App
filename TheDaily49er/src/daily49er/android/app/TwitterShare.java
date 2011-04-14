@@ -25,8 +25,6 @@ public class TwitterShare extends Activity
     			JTWITTER_OAUTH_SECRET, "oob");
     	
     	oauthClient.authorizeDesktop();	
-    	
-    	System.out.println("");
     } //end onCreate()
 
 }
