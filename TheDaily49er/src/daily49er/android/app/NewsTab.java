@@ -29,7 +29,9 @@ public class NewsTab extends ListActivity
 		getListView().setTextFilterEnabled(true);
 		loadFeed();
 	}
-	
+	/**
+	 * Parse, format, and print article's title in list view order.
+	 */
 	public void loadFeed()
 	{
 		try
@@ -40,7 +42,7 @@ public class NewsTab extends ListActivity
 			List<String> titles = new ArrayList<String>(messageList.size());
 	    	for(Message article : messageList)
 	    	{
-	    		articleTitle = article.getTitle() + " \nby " + article.getAuthor() + "\n" + article.getCategory(); 
+	    		articleTitle = article.getTitle() + "\n<" + article.getCategory()+">"; 
 	    		titles.add(articleTitle);
 	    	}
 	   
@@ -55,18 +57,17 @@ public class NewsTab extends ListActivity
     	}
 	}
 
-	//This is what to do when an item from the list is clicked
+	/*
+	 * When an item on the list is clicked, it saved the position ID of the item to be used later for 
+	 * viewing the article.
+	 * @see android.app.ListActivity#onListItemClick(android.widget.ListView, android.view.View, int, long)
+	 */
 	protected void onListItemClick(ListView l, View v, int position, long id) 
 	{
 		super.onListItemClick(l, v, position, id);
 		Intent viewMessage = new Intent(this, Article.class);
 		viewMessage.putExtra("position", id);
 		this.startActivity(viewMessage);
-		//Intent viewMessage = new Intent(Intent.ACTION_VIEW, 
-		//Uri.parse(message.get(position).getLink().toExternalForm()));
-		//this.startActivity(viewMessage);
-		//Object o = this.getListAdapter().getItem(position);
-		//String name = o.toString();
-		//Toast.makeText(this, "Beachin' Software " + " " + name, Toast.LENGTH_LONG).show();
+
 	}
 }
