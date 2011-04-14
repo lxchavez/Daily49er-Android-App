@@ -14,6 +14,8 @@ import com.facebook.android.Facebook.*;
 
 /**
  * Implementation for posting an article to the user's Facebook "wall".
+ * In order to make this class work, you'll need to create a new project that contains facebook SDK files
+ * and reference it to this project.
  * @author Alex Chavez
  */
 public class FacebookShare extends Activity
