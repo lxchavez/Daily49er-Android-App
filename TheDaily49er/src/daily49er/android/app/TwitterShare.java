@@ -4,6 +4,7 @@ import com.facebook.android.Facebook;
 
 import android.app.Activity;
 import android.os.Bundle;
+
 import winterwell.jtwitter.*;
 import oauth.signpost.*;
 
@@ -12,7 +13,7 @@ public class TwitterShare extends Activity
 	private final String JTWITTER_OAUTH_KEY = "";
 	private final String JTWITTER_OAUTH_SECRET = "";
 	
-    /** Called when the activity is first created. */
+    /** Called when the activity is first created. **/
     @Override
     public void onCreate(Bundle savedInstanceState) 
     {
@@ -24,7 +25,6 @@ public class TwitterShare extends Activity
     			JTWITTER_OAUTH_SECRET, "oob");
     	
     	oauthClient.authorizeDesktop();	
-    }
-	
+    } //end onCreate()
 
 }
