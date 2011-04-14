@@ -88,31 +88,38 @@ public class Article extends ListActivity
 		return false;
 	} //end onOptionsSelected()
 	
+	
+	/**
+	 * Parse, format, and display title, category, publication date, and content of the article.
+	 */
 	private void loadFeed()
 	{
 		try
 		{
-			List<String> titles = new ArrayList<String>(newsTab.messageList.size());
 			String castLong = Long.toString(articlePosition);
 			int index = Integer.parseInt(castLong);
 			
 			articleBody = newsTab.messageList.get(index).getDescription();
-			articleTitle = newsTab.messageList.get(index).getTitle();
+			articleTitle = "\n" + newsTab.messageList.get(index).getTitle();
 			articleUrl = newsTab.messageList.get(index).getLink().toString();
-			articleAuthor = newsTab.messageList.get(index).getAuthor();
-			articleDate = newsTab.messageList.get(index).getDate();
-			articleCategory = newsTab.messageList.get(index).getCategory();
+			articleAuthor = "By " + newsTab.messageList.get(index).getAuthor() + "\n";
+			articleDate = newsTab.messageList.get(index).getDate()+ "\n";
+			articleCategory = "<" + newsTab.messageList.get(index).getCategory() +">\n\n";
 			
 			int dotDotDot = articleBody.indexOf("...");
 			articleBody = articleBody.replaceAll("&nbsp;", "");
 			int disclaimer = articleBody.indexOf("Disclaimer:");
-			articleBody = articleBody.substring(dotDotDot + 3, disclaimer).trim();
-			articleBody = "\n" + articleTitle + " (" + articleCategory + ") " + "\n\n"
-				+ "By " + articleAuthor + "\n" + articleDate + "\n" + "\n\n\t" + articleBody;
-			titles.add(articleBody);
+			articleBody = "\n\n\t" + articleBody.substring(dotDotDot + 3, disclaimer).trim();
 
-			ArrayAdapter<String> adapter = 
-				new ArrayAdapter<String>(this, R.layout.row,titles);
+			Message newMessage = new Message();
+			List<Message> titles = new ArrayList<Message>(newsTab.messageList.size());
+			newMessage.setTitle(articleTitle);
+			newMessage.setAuthor(articleAuthor);
+			newMessage.setCategory(articleCategory);
+			newMessage.setDescription(articleBody);
+			newMessage.setDate(articleDate);
+			titles.add(newMessage);
+			ArrayAdapter<Message> adapter = new CustomAdapter(this, R.layout.article_page,titles);
 			this.setListAdapter(adapter);
 
 		}catch(Throwable t)
