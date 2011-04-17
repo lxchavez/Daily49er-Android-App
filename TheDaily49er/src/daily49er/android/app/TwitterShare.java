@@ -1,7 +1,5 @@
 package daily49er.android.app;
 
-import com.facebook.android.Facebook;
-
 import android.app.Activity;
 import android.os.Bundle;
 

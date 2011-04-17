@@ -100,11 +100,11 @@ public class Article extends ListActivity
 			int index = Integer.parseInt(castLong);
 			
 			articleBody = newsTab.messageList.get(index).getDescription();
-			articleTitle = "\n" + newsTab.messageList.get(index).getTitle();
+			articleTitle = newsTab.messageList.get(index).getTitle();
 			articleUrl = newsTab.messageList.get(index).getLink().toString();
-			articleAuthor = "By " + newsTab.messageList.get(index).getAuthor() + "\n";
-			articleDate = newsTab.messageList.get(index).getDate()+ "\n";
-			articleCategory = "<" + newsTab.messageList.get(index).getCategory() +">\n\n";
+			articleAuthor = newsTab.messageList.get(index).getAuthor();
+			articleDate = newsTab.messageList.get(index).getDate();
+			articleCategory = newsTab.messageList.get(index).getCategory();
 			
 			int dotDotDot = articleBody.indexOf("...");
 			articleBody = articleBody.replaceAll("&nbsp;", "");
