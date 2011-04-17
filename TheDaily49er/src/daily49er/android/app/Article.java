@@ -96,6 +96,7 @@ public class Article extends ListActivity
 	{
 		try
 		{
+			//ssssas
 			String castLong = Long.toString(articlePosition);
 			int index = Integer.parseInt(castLong);
 			
