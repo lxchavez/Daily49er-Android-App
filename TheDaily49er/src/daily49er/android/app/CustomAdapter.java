@@ -47,14 +47,14 @@ public class CustomAdapter extends ArrayAdapter<Message>{
 			}
 			if(dt != null)
 			{
-				dt.setText(o.getDate());
+				dt.setText(o.getDate() + "\n");
 			}
 			if(bt != null)
 			{
-				bt.setText(o.getCategory());
+				bt.setText("Category: " + o.getCategory() + "\n");
 			}
 			if(at != null){
-				at.setText(o.getDescription());
+				at.setText("\t" + o.getDescription());
 			}
 		} 
 		
