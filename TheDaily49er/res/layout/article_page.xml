@@ -5,23 +5,23 @@
     android:layout_height="fill_parent">
     
 <TextView android:id="@+id/titleview"
-  android:textSize="14sp"
+  android:textSize="16sp"
   android:textStyle="bold"
-  android:textColor="#11aaff"
+  android:textColor="@color/yellow"
   android:layout_width="wrap_content"
   android:layout_height="wrap_content"/>
   
  <TextView android:id="@+id/authorview"
-  android:textSize="14sp"
+  android:textSize="10sp"
   android:textStyle="italic"
-  android:textColor="#33ccff"
+  android:textColor="#ffcc00"
   android:layout_width="wrap_content"
   android:layout_height="wrap_content"/>
   
  <TextView android:id="@+id/categoryview"
   android:layout_width="wrap_content"
   android:layout_height="wrap_content"
-  android:textColor="#FFFFFF"/>
+  android:textColor="@color/yellow"/>
   
   <TextView xmlns:android="http://schemas.android.com/apk/res/android" 
 	android:id="@+id/articleview" 

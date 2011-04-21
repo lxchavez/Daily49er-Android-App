@@ -42,7 +42,7 @@ public class NewsTab extends ListActivity
 			List<String> titles = new ArrayList<String>(messageList.size());
 	    	for(Message article : messageList)
 	    	{
-	    		articleTitle = article.getTitle() + "\n<" + article.getCategory()+">"; 
+	    		articleTitle = article.getTitle() + "\nCategory: " + article.getCategory(); 
 	    		titles.add(articleTitle);
 	    	}
 	   

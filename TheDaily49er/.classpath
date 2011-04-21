@@ -3,6 +3,11 @@
 	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
+<<<<<<< HEAD
+=======
+	<classpathentry kind="lib" path="jtwitter.jar"/>
+	<classpathentry kind="lib" path="signpost-core-1.2.1.1.jar"/>
+>>>>>>> pcherng/master
 	<classpathentry kind="src" path="com_facebook_android_src"/>
 	<classpathentry kind="lib" path="/Users/webmaster/Desktop/Daily49er-Android-App/jtwitter.jar"/>
 	<classpathentry kind="lib" path="/Users/webmaster/Desktop/Daily49er-Android-App/signpost-core-1.2.1.1.jar"/>
