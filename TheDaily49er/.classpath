@@ -4,7 +4,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="src" path="com_facebook_android_src"/>
-	<classpathentry kind="lib" path="/Users/service/Desktop/Daily49er-Android-App/jtwitter.jar"/>
-	<classpathentry kind="lib" path="/Users/service/Desktop/Daily49er-Android-App/signpost-core-1.2.1.1.jar"/>
+	<classpathentry kind="lib" path="/Users/webmaster/Desktop/Daily49er-Android-App/jtwitter.jar"/>
+	<classpathentry kind="lib" path="/Users/webmaster/Desktop/Daily49er-Android-App/signpost-core-1.2.1.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
