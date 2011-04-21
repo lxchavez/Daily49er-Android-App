@@ -17,4 +17,9 @@
     <string name="email_title">Email sharing</string>
     <string name="email_shortcut">em</string>
     <!--END MENU BUTTON STRINGS -->
+    
+    <string name ="twittertitle">Please log in to Twitter:</string>
+    <string name ="twitterID">Username</string>
+    <string name ="twitterPW">Password</string>
+    <string name ="twitterlogin">Log In</string>
 </resources>

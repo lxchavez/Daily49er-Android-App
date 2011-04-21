@@ -21,7 +21,8 @@
         <activity android:name=".MediaTab"></activity>
         <activity android:name=".EventsTab"></activity>
         <activity android:name=".FacebookShare"></activity>
-        <activity android:name=".SettingsTab"
+        <activity android:name=".TwitterShare"></activity>
+        <activity android:name=".ContactTab"
         	android:label="Settings">
         </activity>
         <activity android:launchMode="standard" android:name="SplashScreen"></activity>

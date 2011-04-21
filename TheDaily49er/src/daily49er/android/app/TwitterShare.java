@@ -16,13 +16,13 @@ public class TwitterShare extends Activity
     public void onCreate(Bundle savedInstanceState) 
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.twitter);
         
         // Make an oauth client
-    	OAuthSignpostClient oauthClient = new OAuthSignpostClient(JTWITTER_OAUTH_KEY, 
+    	/*OAuthSignpostClient oauthClient = new OAuthSignpostClient(JTWITTER_OAUTH_KEY, 
     			JTWITTER_OAUTH_SECRET, "oob");
     	
-    	oauthClient.authorizeDesktop();	
+    	oauthClient.authorizeDesktop();	*/
     } //end onCreate()
 
 }

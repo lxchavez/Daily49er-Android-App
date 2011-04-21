@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout
+android:id="@+id/widget30"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+xmlns:android="http://schemas.android.com/apk/res/android"
+>
+<TextView
+android:id="@+id/widget34"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:textSize="24sp"
+android:text="About"
+android:layout_x="12px"
+android:layout_y="11px"
+>
+</TextView>
+<TextView
+android:id="@+id/widget35"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="			The purpose of the application is to create a fast and functional 
+companion application for the  CSULB’s newspaper the Daily 49er on mobile devices.
+The intent of having a mobile application is to allow for news articles to be easily
+accessible and readable in a user-friendly way. In addition to news articles, 
+subcategories will also be available that consist of: videos, podcasts, local events, 
+social networking features, and contact information. "
+android:layout_x="16px"
+android:layout_y="53px"
+>
+</TextView>
+
+<Button
+android:id="@+id/contactButton"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+
+android:text="Contact us"
+android:layout_x="10px"
+android:layout_y="350px"
+>
+</Button>
+</AbsoluteLayout>

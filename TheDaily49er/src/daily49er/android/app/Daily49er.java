@@ -56,10 +56,10 @@ public class Daily49er extends TabActivity
 	    
 	    
 	    // Create an Intent to launch an Activity for the tab (to be reused)
-	    intent = new Intent().setClass(this, SettingsTab.class);
+	    intent = new Intent().setClass(this, ContactTab.class);
 	    
 	    // Initialize a TabSpec for each tab and add it to the TabHost
-	    spec = tabHost.newTabSpec("settings").setIndicator("Settings",
+	    spec = tabHost.newTabSpec("Contact").setIndicator("Contact",
 	                      res.getDrawable(R.drawable.ic_tab_settings))
 	                  .setContent(intent);
 	    tabHost.addTab(spec);
