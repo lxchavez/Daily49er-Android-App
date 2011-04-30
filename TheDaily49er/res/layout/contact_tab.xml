@@ -19,7 +19,7 @@ android:layout_y="11px"
 android:id="@+id/widget35"
 android:layout_width="wrap_content"
 android:layout_height="wrap_content"
-android:text="			The purpose of the application is to create a fast and functional 
+android:text="\n\tThe purpose of the application is to create a fast and functional 
 companion application for the  CSULB’s newspaper the Daily 49er on mobile devices.
 The intent of having a mobile application is to allow for news articles to be easily
 accessible and readable in a user-friendly way. In addition to news articles, 
@@ -35,7 +35,7 @@ android:id="@+id/contactButton"
 android:layout_width="wrap_content"
 android:layout_height="wrap_content"
 
-android:text="Contact us"
+android:text="Contact Us"
 android:layout_x="10px"
 android:layout_y="350px"
 >

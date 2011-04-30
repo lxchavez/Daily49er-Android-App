@@ -60,8 +60,7 @@ public class Daily49er extends TabActivity
 	    
 	    // Initialize a TabSpec for each tab and add it to the TabHost
 	    spec = tabHost.newTabSpec("Contact").setIndicator("Contact",
-	                      res.getDrawable(R.drawable.ic_tab_settings))
-	                  .setContent(intent);
+	    		res.getDrawable(R.drawable.ic_tab_contact)).setContent(intent);
 	    tabHost.addTab(spec);
 
     }

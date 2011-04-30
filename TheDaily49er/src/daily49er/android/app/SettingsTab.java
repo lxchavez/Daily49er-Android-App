@@ -19,6 +19,6 @@ public class SettingsTab extends PreferenceActivity
         super.onCreate(savedInstanceState);
         //Reads the settings definition from XML and inflates it
         //into views in the current activity.
-        addPreferencesFromResource(R.xml.preferences);
+        //addPreferencesFromResource(R.xml.preferences);
     } //end onCreate()
 } //end SettingsTab class
