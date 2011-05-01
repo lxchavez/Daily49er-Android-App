@@ -9,9 +9,9 @@
     <string name="facebook_title">Facebook sharing</string>
     <string name="facebook_shortcut">fb</string>
     
-   	<string name="twitter_label">Twitter</string>
+   	<!--<string name="twitter_label">Twitter</string>
     <string name="twitter_title">Twitter sharing</string>
-    <string name="twitter_shortcut">twt</string>
+    <string name="twitter_shortcut">twt</string> -->
     
     <string name="email_label">E-mail</string>
     <string name="email_title">Email sharing</string>

@@ -2,9 +2,9 @@
 <classpath>
 	<classpathentry kind="lib" path="/Users/Alex/Desktop/Daily49er-Android-App/TheDaily49er/jtwitter.jar"/>
 	<classpathentry kind="lib" path="/Users/Alex/Desktop/Daily49er-Android-App/TheDaily49er/signpost-core-1.2.1.1.jar"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
-	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
 	<classpathentry kind="src" path="com_facebook_android_src"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

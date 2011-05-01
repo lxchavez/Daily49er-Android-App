@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 	<menu xmlns:android="http://schemas.android.com/apk/res/android">
 		<item android:id="@+id/facebook_share" android:title="@string/facebook_label" android:alphabeticShortcut="@string/facebook_shortcut" />
-		<item android:id="@+id/twitter_share" android:title="@string/twitter_label" android:alphabeticShortcut="@string/twitter_shortcut" />
+		<!-- <item android:id="@+id/twitter_share" android:title="@string/twitter_label" android:alphabeticShortcut="@string/twitter_shortcut" /> -->
 		<item android:id="@+id/email_share" android:title="@string/email_label" android:alphabeticShortcut="@string/email_shortcut" />
 	</menu>

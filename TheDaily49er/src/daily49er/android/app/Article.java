@@ -71,9 +71,11 @@ public class Article extends ListActivity
 				FacebookShare.setUrl(articleUrl);
 				startActivity(new Intent(this, FacebookShare.class));
 				return true;
-			case R.id.twitter_share:
+			/* Twitter Integration Goes Here
+ 				case R.id.twitter_share:
 				startActivity(new Intent(this, TwitterShare.class));
 				return true;
+				END TWITTER INTEGRATION*/
 			case R.id.email_share:
 				Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND); 
 				emailIntent.setType("plain/text");
