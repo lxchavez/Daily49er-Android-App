@@ -34,7 +34,7 @@ public class ContactTab extends Activity implements OnClickListener{
 	
 	public void onClick(View view)
 	{
-		String aEmailList[] = {"alex@alexchavez.net"};
+		String aEmailList[] = {"onlined49er@gmail.com"};
 		Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND); 
 		emailIntent.setType("plain/text");
 		emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, aEmailList);
